@@ -7,16 +7,14 @@ func main() {
 	// and then assign string value into it.
 	// var is short for variable
 	var card string = newCard()
-	var cards []string = []string{
+	var cards deck = deck{
 		newCard(), newCard(),
 	}
 	strings := append(cards, card) // this does not modify the original slices.
 	fmt.Println(cards)
 	fmt.Println(strings)
 
-	for i, card := range strings {
-		println(i, card)
-	}
+	cards.print()
 }
 
 func newCard() string {
