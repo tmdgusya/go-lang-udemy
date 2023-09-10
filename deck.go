@@ -1,5 +1,7 @@
 package main
 
+import "strings"
+
 // Create a New type of deck
 // which is a slices of string.
 type deck []string
@@ -42,4 +44,12 @@ func (d deck) print() {
 
 func (d deck) deal(handSize int) (deck, deck) {
 	return d[:handSize], d[handSize:]
+}
+
+/*
+ * Return a string
+ * ["red", "yellow", "blue"] -> condense it down to a string of red, comma, yellow, comma, blue -> "red,yellow,blue"
+ */
+func (d deck) toString() string {
+	return strings.Join(d, ",")
 }

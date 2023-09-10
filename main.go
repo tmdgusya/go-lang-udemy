@@ -12,6 +12,7 @@ func main() {
 	hand.print()
 	fmt.Println("Remaining Card below")
 	remainingCards.print()
+	println(remainingCards.toString())
 }
 
 func newCard() string {
