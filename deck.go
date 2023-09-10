@@ -2,6 +2,8 @@ package main
 
 import (
 	"io/ioutil"
+	"log"
+	"os"
 	"strings"
 )
 
@@ -60,4 +62,18 @@ func (d deck) toString() string {
 func (d deck) saveToFile(filename string) error {
 	// 0666 -> anyone can read and write file
 	return ioutil.WriteFile(filename, []byte(d.toString()), 0666)
+}
+
+// we will annotate this type string
+func newDeckFromFile(filename string) deck {
+	bs, err := ioutil.ReadFile(filename)
+	if err != nil {
+		// log the error and then just quit the program entirely
+		log.Println("Error : ", err)
+		os.Exit(1)
+	}
+
+	s := string(bs) // it is separated by comma
+	log.Println("Read Deck from the file : ", s)
+	return deck(strings.Split(s, ","))
 }

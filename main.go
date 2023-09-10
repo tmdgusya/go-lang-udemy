@@ -14,6 +14,7 @@ func main() {
 	remainingCards.print()
 	println(remainingCards.toString())
 	remainingCards.saveToFile("test.txt")
+	print(newDeckFromFile("test.txt").toString())
 }
 
 func newCard() string {
