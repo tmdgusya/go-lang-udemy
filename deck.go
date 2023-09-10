@@ -1,6 +1,9 @@
 package main
 
-import "strings"
+import (
+	"io/ioutil"
+	"strings"
+)
 
 // Create a New type of deck
 // which is a slices of string.
@@ -52,4 +55,9 @@ func (d deck) deal(handSize int) (deck, deck) {
  */
 func (d deck) toString() string {
 	return strings.Join(d, ",")
+}
+
+func (d deck) saveToFile(filename string) error {
+	// 0666 -> anyone can read and write file
+	return ioutil.WriteFile(filename, []byte(d.toString()), 0666)
 }

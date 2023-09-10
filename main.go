@@ -13,6 +13,7 @@ func main() {
 	fmt.Println("Remaining Card below")
 	remainingCards.print()
 	println(remainingCards.toString())
+	remainingCards.saveToFile("test.txt")
 }
 
 func newCard() string {
