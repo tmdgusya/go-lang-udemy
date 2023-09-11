@@ -23,7 +23,14 @@ func main() {
 		},
 	}
 
+	jim.updateName("Jeong")
 	jim.print()
+}
+
+// The original Instance have not changed by this.
+// So, You should use a pointer for it to work as expected
+func (p person) updateName(newFirstName string) {
+	p.firstName = newFirstName
 }
 
 func (p person) print() {
