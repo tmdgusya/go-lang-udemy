@@ -1,0 +1,20 @@
+package main
+
+import "fmt"
+
+func main() {
+	// create a map no value inside of it
+	colors := make(map[string]string)
+
+	colors["white"] = "#ffffff"
+
+	fmt.Println(colors["white"])
+	//delete(colors, "white")
+	printMap(colors) // map[]
+}
+
+func printMap(m map[string]string) {
+	for color, hex := range m {
+		fmt.Println("Hex code for", color, "is", hex)
+	}
+}
