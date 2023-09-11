@@ -33,6 +33,8 @@ func main() {
 //	p.firstName = newFirstName
 //	return p // pass by value
 //}
+
+// Go will allow us to either call this function with a pointer or with the root type
 func (p *person) updateName(newFirstName string) {
 	p.firstName = newFirstName
 }
