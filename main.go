@@ -23,18 +23,20 @@ func main() {
 		},
 	}
 
-	var test person = jim.updateName("Jeong")
-	jim.print()  // Jim
-	test.print() // Jeong
+	jim.updateName("Jeong")
+	jim.print() // Jim
 }
 
 // The original Instance have not changed by this.
 // So, You should use a pointer for it to work as expected
-func (p person) updateName(newFirstName string) person {
+//func (p person) updateName(newFirstName string) person {
+//	p.firstName = newFirstName
+//	return p // pass by value
+//}
+func (p *person) updateName(newFirstName string) {
 	p.firstName = newFirstName
-	return p // pass by value
 }
 
-func (p person) print() {
+func (p *person) print() {
 	fmt.Printf("%+v", p)
 }
